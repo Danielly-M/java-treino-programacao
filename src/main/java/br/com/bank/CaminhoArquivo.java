@@ -49,31 +49,6 @@ public class CaminhoArquivo {
         return new CaminhoArquivo(Paths.get(localDoArquivo), Paths.get(nomeCompleto));
     }
 
-
-
-
-
-
-
-        /* String b = "/tmp/";(nomeDoArquivo)
-        String direetorio = null;
-        String d = null; e(agora definida como variável 1 = nomeDoDiretorio; variável 2 = localDoArquivo)
-        if (id <= 1000) {
-            d = b + id;
-        } else {
-            int i = id;
-            direetorio = d + i;
-            boolean nome = true;
-            while (nome) {
-                if (id <= (i * 1000)) {
-                    d = b + i;
-                    direetorio = d + i;
-                }
-                i++;
-            }
-        }*/
-       // return new CaminhoArquivo(Paths.get(d), Paths.get(direetorio));
-
     }
 
 
