@@ -5,6 +5,11 @@ import java.math.RoundingMode;
 import java.net.URI;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
+
+import javax.persistence.Id;
+
+import org.mockito.internal.matchers.NotNull;
 
 public class CaminhoArquivo {
 
@@ -26,6 +31,11 @@ public class CaminhoArquivo {
     public Path getArquivo() {
         return arquivo;
     }
+    //public boolean assertNotNull() {
+        //if(id == null){
+            //throw new idInvalida();
+        //}
+    //}
 
     /**
      * @param id
@@ -36,6 +46,9 @@ public class CaminhoArquivo {
         String localDoArquivo; 
         int s = 1;
         String nomeCompleto;
+        if(id == null){
+            throw new IllegalArgumentException("ID não pode ser nulo");
+        }
         for(int i = 1; i <= id; i++){
             if(i <= 1000){
                 s = 1;
@@ -47,8 +60,11 @@ public class CaminhoArquivo {
         localDoArquivo = nomeDoDiretorio + Integer.toString(s);
         nomeCompleto = localDoArquivo + '/' + id;
         return new CaminhoArquivo(Paths.get(localDoArquivo), Paths.get(nomeCompleto));
+         
     }
 
+
     }
+
 
 

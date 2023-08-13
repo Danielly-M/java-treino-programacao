@@ -2,10 +2,15 @@ package br.com.bank;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.matchers.Null;
 
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.isNotNull;
 
 
 class CaminhoArquivoTest {
@@ -38,6 +43,16 @@ class CaminhoArquivoTest {
         assertEquals(Paths.get("/tmp/3"), caminhoArquivo.getDiretorio());
         assertEquals(Paths.get("/tmp/3/2001"), caminhoArquivo.getArquivo());
 
+        //caminhoArquivo = CaminhoArquivo.getInstance(null);
+        //assertEquals(Paths.get(isNotNull()), caminhoArquivo.getDiretorio());
+        //assertNull(CaminhoArquivo.getInstance(null);
+    }
+
+    @Test
+    public void testGetInstanceWithNullId() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            CaminhoArquivo.getInstance(null);
+        });
     }
 
 }
